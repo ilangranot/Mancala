@@ -1,11 +1,6 @@
-import java.awt.Graphics2D;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.geom.RoundRectangle2D;
-import java.util.ArrayList;
-import javax.swing.JComponent;
+
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 
 /*
     to choose Style, init view
@@ -22,35 +17,29 @@ import javax.swing.JPanel;
 public class ViewManager extends JFrame {
 
   
-    private int gameStyle;  //0 for regular style, 1 for fancy style..
-    private ArrayList<DrawPits> pitsA;
-    private ArrayList<DrawPits> pitsB;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-    private int x;
-    private int y;
+    private int gameStyle; // 0 for regular style, 1 for fancy style..
+    private DrawView curr_View;
     private final static int WIDTH = 500;
     private final static int HEIGHT = 200;
 
-    private final static int PITS_PER_PLAYER = 6;
-    private final static int PIT_RADIUS = 50;
-    private final static int PIT_SPACING = 10;
 
-
-    public ViewManager(int style){
+    public ViewManager(int gameStyle){
         setTitle("Mancala Game");
-        setSize(WIDTH,HEIGHT);
-        gameStyle = style;
-        DrawPits p1 = new DrawPits(gameStyle, 20, 20, PIT_RADIUS);
-        DrawPits p2 = new DrawPits(gameStyle, 20, 40, PIT_RADIUS);
-        add(p1);
-        add(p2);
+        setSize(WIDTH+20,HEIGHT+50);
+
+        this.gameStyle = gameStyle;
+        
+        curr_View = new DrawView(gameStyle, WIDTH, HEIGHT);
+        add(curr_View);
     }
 
-
-
-
-    public void newGame(int gStyle){
-        gameStyle = gStyle;
+    public void updateView() {
+        
     }
 
 
