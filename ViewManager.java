@@ -24,14 +24,14 @@ public class ViewManager extends JFrame {
 
     private int gameStyle; // 0 for regular style, 1 for fancy style..
     private DrawView curr_View;
-    private final static int WIDTH = 500;
-    private final static int HEIGHT = 200;
+    private final static int WIDTH = 670;
+    private final static int HEIGHT = (int)(WIDTH * 0.5);
 
 
     public ViewManager(int gameStyle){
         setTitle("Mancala Game");
-        setSize(WIDTH+20,HEIGHT+50);
-
+        setSize(WIDTH,HEIGHT);
+        
         this.gameStyle = gameStyle;
         
         curr_View = new DrawView(gameStyle, WIDTH, HEIGHT);
